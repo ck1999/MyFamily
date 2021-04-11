@@ -1,0 +1,4 @@
+
+*.pyc
+family/db.sqlite3
+family/main/migrations/*.py

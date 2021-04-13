@@ -1,0 +1,11 @@
+{% include "header.html" %}
+<!-- MAIN INFO -->
+{% for i in Tree %}
+    <div>{{ i.fio }}</div>
+    <div>{{ i.needUser }}</div>
+{% endfor %}
+{% for i in TreePos %}
+    <div>{{ i.pos_x }}</div>
+    <div>{{ i.pos_y }}</div>
+    <div>{{ i.UserUiConnect }}</div>
+{% endfor %}

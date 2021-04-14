@@ -7,9 +7,9 @@ import random
 
 chars = '+-/*!&$#?=@<>abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
 def create_pass():
-    for n in range(number):
+    for n in range(5):
         password =''
-        for i in range(length):
+        for i in range(5):
             password += random.choice(chars)
         return password
 
@@ -25,17 +25,19 @@ def addUserUI(request):
         if NewUserUI.is_valid():
             fioForm = NewUserUI.data['fio']
             needUserForm = NewUserUI.data['needUser']
-            x_Form = NewUserUI.data['Pos_x']
-            y_Form = NewUserUI.data['Pos_y']
-            item = Block(nonce = int(nonce_a), time = datetime.datetime.now(), msg=msg_a)
-            item = UserUI(fio = fioForm, needUserForm = needUserForm)
-            if item.validate():
-                item.save()
-                NewUserUIPos = UserUIPosition(pos_x = x_Form, pos_y = y_Form, UserUIConnect = item)
-                NewUserUIPos.save()
-                if needUserForm:
-                    NewUser = User.objects.create_user(username=fioForm[:3]+19, password=create_pass())
-                    NewUser.save()
+            #x_Form = NewUserUI.data['Pos_x']
+            #y_Form = NewUserUI.data['Pos_y']
+            if needUserForm == 'on':
+                needUserForm = True
+            else:
+                needUserForm = False
+            item = UserUI(fio = fioForm, needUser = needUserForm)
+            item.save()
+            NewUserUIPos = UserUIPosition(pos_x = 0, pos_y = 0, UserUIConnect = item)
+            NewUserUIPos.save()
+            if needUserForm:
+                NewUser = User.objects.create_user(username=fioForm[:5]+str(create_pass()), password=create_pass())
+                NewUser.save()
     return render(request, 'add.html', {'form': NewUserUI})
 
 

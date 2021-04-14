@@ -3,9 +3,18 @@
 {% for i in Tree %}
     <div>{{ i.fio }}</div>
     <div>{{ i.needUser }}</div>
+    <div>{{ i.id }}</div>
 {% endfor %}
 {% for i in TreePos %}
     <div>{{ i.pos_x }}</div>
     <div>{{ i.pos_y }}</div>
-    <div>{{ i.UserUiConnect }}</div>
+    <div>{{ i.id }}</div>
 {% endfor %}
+<div class="FamilyTree">
+
+</div>
+<script>
+    function PlaceUser(pos_x,pos_y){
+        return 0
+    }
+</script>

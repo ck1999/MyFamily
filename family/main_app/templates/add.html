@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 
-  {% include "head.html" %}
+  {% include "header.html" %}
 
   <body class="bg-lightGray">
 
       <!-- Body -->
         <div class="middle">
 
-            <form method="post" action="{% url 'addUserUI' %}">
+            <form method="post" action="{% url 'add' %}">
                 {% csrf_token %}
                 {{ form }}
                 <input type="submit" value="Submit" class="w-100 button drop-shadow light">

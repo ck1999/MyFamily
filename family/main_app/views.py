@@ -7,11 +7,10 @@ import random
 
 chars = '+-/*!&$#?=@<>abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
 def create_pass():
-    for n in range(5):
-        password =''
-        for i in range(5):
-            password += random.choice(chars)
-        return password
+    password =''
+    for i in range(7):
+        password += random.choice(chars)
+    return password
 
 
 # Create your views here.

@@ -1,20 +1,31 @@
 {% include "header.html" %}
-<!-- MAIN INFO -->
+<!-- MAIN INFO (CHECK METRO $.POST !!!)-->
 {% for i in Tree %}
-    <div>{{ i.fio }}</div>
-    <div>{{ i.needUser }}</div>
-    <div>{{ i.id }}</div>
+    <div id="{{ i.id }}" class="FamilyID" data-role="draggable">
+        <div>{{ i.fio }}</div>
+        <div>{{ i.needUser }}</div>
+    </div>
 {% endfor %}
-{% for i in TreePos %}
-    <div>{{ i.pos_x }}</div>
-    <div>{{ i.pos_y }}</div>
-    <div>{{ i.id }}</div>
-{% endfor %}
-<div class="FamilyTree">
-
-</div>
 <script>
-    function PlaceUser(pos_x,pos_y){
-        return 0
+    function PlaceUser(pos_x, pos_y, id){
+        var obj = document.getElementById(id)
+        if ((pos_x != 0) & (pos_y != 0)){
+            obj.style.left = pos_x + 'px'
+            obj.style.top = pos_y + 'px'
+        }
+        console.log('Object with id['+id+'] has position at {'+pos_x+','+pos_y+'}')
     }
+
+    {% for i in TreePos %}
+        PlaceUser({{ i.pos_x }}, {{ i.pos_y }}, {{ i.id }})
+    {% endfor %}
+
+
 </script>
+<style>
+    .FamilyID{
+        position: absolute;
+        left: 0px;
+        top: 0px;
+    }
+</style>

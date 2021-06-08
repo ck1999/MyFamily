@@ -1,4 +1,5 @@
 
-*.pyc
-family/db.sqlite3
-family/main/migrations/*.py
+familytree_django/familytree/custom_user/migrations/*.py
+familytree_django/familytree/custom_user/__pycache__/*.pyc
+familytree_django/familytree/familytree/__pycache__/*.pyc
+familytree_django/familytree/custom_user/migrations/__pycache__/*.pyc
